@@ -2,10 +2,12 @@ package yzh;
 
 import yzh.algorithm.LongestSubstring;
 import yzh.algorithm.MedianSortedArrays;
+import yzh.algorithm.RomanToInt;
 
 public class Main {
     public static void main(String[] args) {
-        findMedianSortedArrays();
+        // findMedianSortedArrays();
+        romanToInt();
     }
 
     public static void lengthOfLongestSubstring() {
@@ -19,4 +21,9 @@ public class Main {
         System.out.println(MedianSortedArrays.findMedianSortedArrays(nums1, nums2));
     }
 
+
+    public static void romanToInt() {
+        String roman = "LVIII";
+        System.out.println(new RomanToInt().romanToInt(roman));
+    }
 }

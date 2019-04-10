@@ -1,9 +1,8 @@
 package yzh.algorithm;
 
 /**
- * @ClassName MedianSortedArrays
- * @Author 78511
- * @Date 2019/4/8 22:16
+ * @Author yzh
+ * @Date 2019/4/8
  **/
 public class MedianSortedArrays {
     /**

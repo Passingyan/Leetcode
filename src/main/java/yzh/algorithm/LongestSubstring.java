@@ -3,6 +3,10 @@ package yzh.algorithm;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @Author yzh
+ * @Date 2019/4/8
+ **/
 public class LongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
         if (s.length() == 1 || s.length() == 0) {
