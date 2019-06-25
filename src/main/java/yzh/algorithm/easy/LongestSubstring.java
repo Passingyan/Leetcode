@@ -1,4 +1,4 @@
-package yzh.algorithm;
+package yzh.algorithm.easy;
 
 import java.util.HashMap;
 import java.util.Map;

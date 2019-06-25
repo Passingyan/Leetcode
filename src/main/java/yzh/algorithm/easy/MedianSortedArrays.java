@@ -1,4 +1,4 @@
-package yzh.algorithm;
+package yzh.algorithm.easy;
 
 /**
  * @Author yzh
