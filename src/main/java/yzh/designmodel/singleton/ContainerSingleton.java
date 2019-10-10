@@ -1,14 +1,14 @@
 package yzh.designmodel.singleton;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author yongzh
  * @date 2019/10/10
  */
 public class ContainerSingleton {
-    private static Map<String, Object> containerMap = new HashMap<>();
+    private static Map<String, Object> containerMap = new ConcurrentHashMap<String, Object>();
 
     public static Object getInstance(String className) {
         synchronized (containerMap) {
