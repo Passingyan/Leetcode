@@ -14,8 +14,12 @@ public class TestMain {
             ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 10, 60000L,
                     TimeUnit.MICROSECONDS, new SynchronousQueue<>(), new ThreadPoolExecutor.DiscardOldestPolicy());
             for (int i = 0; i < 10; i++) {
+                // threadPoolExecutor.submit(() ->
+                //         System.out.println(LazyInnerSingleton.getInstance())
+                // );
+
                 threadPoolExecutor.submit(() ->
-                        System.out.println(LazyInnerSingleton.getInstance())
+                        System.out.println(ContainerSingleton.getInstance("yzh.designmodel.singleton.TestContainerSingleton"))
                 );
             }
         } catch (Exception e) {
