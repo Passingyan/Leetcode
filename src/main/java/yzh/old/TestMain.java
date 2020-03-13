@@ -1,4 +1,4 @@
-package yzh.designmodel.singleton;
+package yzh.old;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,7 +19,7 @@ public class TestMain {
                 // );
 
                 threadPoolExecutor.submit(() ->
-                        System.out.println(ContainerSingleton.getInstance("yzh.designmodel.singleton.TestContainerSingleton"))
+                        System.out.println(ContainerSingleton.getInstance("TestContainerSingleton"))
                 );
             }
         } catch (Exception e) {

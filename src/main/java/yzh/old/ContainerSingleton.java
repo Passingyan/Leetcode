@@ -1,4 +1,4 @@
-package yzh.designmodel.singleton;
+package yzh.old;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

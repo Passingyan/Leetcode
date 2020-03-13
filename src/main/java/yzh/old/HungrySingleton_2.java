@@ -1,4 +1,4 @@
-package yzh.designmodel.singleton;
+package yzh.old;
 
 /**
  * @author yongzh
