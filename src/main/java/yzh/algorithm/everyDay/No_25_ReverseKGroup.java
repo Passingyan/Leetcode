@@ -1,8 +1,6 @@
-package yzh.algorithm;
+package yzh.algorithm.everyDay;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
-import java.util.List;
+import yzh.algorithm.common.ListNode;
 
 /**
  * 25. K 个一组翻转链表

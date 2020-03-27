@@ -1,4 +1,4 @@
-package yzh.algorithm;
+package yzh.algorithm.everyDay;
 
 /**
  * 5. 最长回文子串

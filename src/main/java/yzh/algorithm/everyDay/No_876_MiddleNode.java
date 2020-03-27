@@ -1,4 +1,6 @@
-package yzh.algorithm;
+package yzh.algorithm.everyDay;
+
+import yzh.algorithm.common.ListNode;
 
 /**
  * 给定一个带有头结点 head 的非空单链表，返回链表的中间结点。
@@ -33,14 +35,5 @@ public class No_876_MiddleNode {
             temp = temp.next.next;
         }
         return head;
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
     }
 }

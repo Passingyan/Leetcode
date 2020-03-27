@@ -1,4 +1,4 @@
-package yzh.algorithm;
+package yzh.algorithm.everyDay;
 
 /**
  * 面试题 17.16. 按摩师
@@ -25,6 +25,15 @@ package yzh.algorithm;
  * 解释： 选择 1 号预约、 3 号预约、 5 号预约和 8 号预约，总时长 = 2 + 4 + 3 + 3 = 12。
  */
 public class No_17_16_Massage {
+    /**
+     * 解题思路：动态规划
+     * 借助两个数组A和B，A保存要接当前号的总预约时间，B保存到当前号的最大预约时间方案
+     *
+     * 到当前号，A[i] = nums[i] + B[i-2]
+     * 同时更新，B[i] = Math.max(A[i],B[i-1])
+     * @param nums
+     * @return
+     */
     public static int massage(int[] nums) {
         int[] temp = new int[nums.length];
         int[] inner = new int[nums.length];
