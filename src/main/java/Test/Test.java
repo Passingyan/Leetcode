@@ -1,5 +1,6 @@
 package Test;
 
+import java.sql.DriverManager;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -9,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Test {
     public static void main(String[] args) {
-        temp4();
+        temp6();
     }
 
 
@@ -77,4 +78,32 @@ public class Test {
         map.put("ss", map.get("ss") + 1);
         System.out.println(map.get("ss"));
     }
+
+    static void temp5() {
+        Integer in1 = new Integer(133334);
+        Integer in2 = new Integer(133334);
+        System.out.println(in1.hashCode());
+        System.out.println(in2.hashCode());
+        System.out.println(in1 == in2);
+        System.out.println(in1.equals(in2));
+    }
+
+    static void temp6() {
+        StringBuilder sb = new StringBuilder("abc");
+        StringBuilder sb1 = new StringBuilder("abc");
+        System.out.println(sb.hashCode());
+        System.out.println(sb1.hashCode());
+        System.out.println(sb1.equals(sb));
+    }
+
+    static void temp7() {
+        ClassLoader system = ClassLoader.getSystemClassLoader();
+        Class<?> clazz = null;
+        try {
+            clazz = system.loadClass("");
+        }catch (Exception e){
+
+        }
+    }
+
 }
