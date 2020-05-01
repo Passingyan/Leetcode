@@ -2,7 +2,10 @@ package Test;
 
 import java.sql.DriverManager;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author yongzh
@@ -54,6 +57,8 @@ public class Test {
 
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         concurrentHashMap.put(ss, ss);
+        Iterable iterable = (Iterable) concurrentHashMap.keySet().iterator();
+
 
         TreeMap treeMap = new TreeMap();
         treeMap.put(ss, ss);
@@ -101,9 +106,79 @@ public class Test {
         Class<?> clazz = null;
         try {
             clazz = system.loadClass("");
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
+    }
+
+    static void temp8() {
+        List<String> list = Collections.synchronizedList(new ArrayList<>());
+        list.add("sss");
+        CopyOnWriteArrayList<String> list1 = new CopyOnWriteArrayList<>();
+        list1.add("sss");
+        AtomicInteger integer = new AtomicInteger();
+        integer.getAndIncrement();
+        integer.addAndGet(1);
+    }
+
+    static void temp9() {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        reentrantLock.lock();
+        reentrantLock.unlock();
+        ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
+        reentrantReadWriteLock.writeLock();
+
+    }
+
+    static void temp10() throws Exception {
+        CountDownLatch countDownLatch = new CountDownLatch(10);
+        countDownLatch.await();
+        countDownLatch.await(10, TimeUnit.DAYS);
+
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(10);
+
+
+        Semaphore semaphore = new Semaphore(10);
+    }
+
+    static void temp11() {
+        ExecutorService executorService = new ThreadPoolExecutor(1, 1, 0L,
+                TimeUnit.SECONDS, new LinkedBlockingQueue<>(), Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
+
+        ExecutorService executorService1 = Executors.newFixedThreadPool(1,
+                Executors.defaultThreadFactory());
+
+        ExecutorService executorService2 = Executors.newCachedThreadPool();
+
+        ExecutorService executorService3 = Executors.newSingleThreadExecutor();
+
+        ExecutorService executorService4 = Executors.newScheduledThreadPool(1);
+
+        ArrayBlockingQueue<String> arrayBlockingQueue =
+                new ArrayBlockingQueue<>(1);
+        arrayBlockingQueue.add("333");
+
+        LinkedBlockingQueue<String> linkedBlockingQueue = new LinkedBlockingQueue();
+        linkedBlockingQueue.add("333");
+
+        SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>();
+        synchronousQueue.add("333");
+
+        DelayQueue delayQueue = new DelayQueue<>();
+        delayQueue.add(new Delayed() {
+            @Override
+            public long getDelay(TimeUnit unit) {
+                return 0;
+            }
+
+            @Override
+            public int compareTo(Delayed o) {
+                return 0;
+            }
+        });
+
+        executorService.submit(() -> System.out.println("test ThreadPoolExecutor"));
     }
 
 }
