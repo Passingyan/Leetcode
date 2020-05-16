@@ -23,95 +23,35 @@ import yzh.algorithm.common.ListNode;
 
 public class No_25_ReverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (k == 1) return head;
-        ListNode temp = head.next;
-        ListNode begin = head;
-        ListNode indexNode = begin;
-        ListNode front = null;
-        int index = 2;
-        while (temp != null) {
-            if (begin == null) {
-                begin = temp;
-                indexNode = begin;
-            }
-            ListNode node = temp.next;
-            if (index / k != 0) {
-                if (node != null) {
-                    temp.next = indexNode;
-                    indexNode = temp;
-                } else {
-                    temp.next = indexNode;
-                    if (front == null) head = temp;
-                    else {
-                        front.next = temp;
-                    }
-                    break;
-                }
-            } else {
-                if (front != null) {
-                    front.next = temp;
-                } else {
-                    head = temp;
-                }
-                front = begin;
-                begin = null;
-                indexNode = null;
-            }
-            temp = node;
-            index++;
-        }
-        return head;
-    }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
 
-    public static ListNode reverseKGroup2(ListNode head, int k) {
-        ListNode temp = head;
-        ListNode front = null;
-        while (temp != null) {
-            ListNode before = temp;
-            ListNode[] arr = reverseList(temp, k);
-            ListNode newFirst = arr[0];
-            if (front != null) {
-                front.next = newFirst;
+        ListNode pre = dummy;
+        ListNode end = dummy;
 
-            } else {
-                head = newFirst;
-            }
-            front = before;
-            temp = arr[1];
+        while (end.next != null) {
+            for (int i = 0; i < k && end != null; i++) end = end.next;
+            if (end == null) break;
+            ListNode start = pre.next;
+            ListNode next = end.next;
+            end.next = null;
+            pre.next = reverseLink(start);
+            start.next = next;
+            pre = end = start;
         }
-        return head;
-    }
-
-    public static ListNode[] reverseList(ListNode node, int k) {
-        ListNode end = node;
-        ListNode before = node;
-        node = node.next;
-        k--;
-        while (k > 0 && node != null) {
-            before = end;
-            end = node;
-            end.next = before;
-            node = node.next;
-            k--;
-        }
-        ListNode[] arr = {end, node};
-        return arr;
+        return dummy.next;
     }
 
 
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        int k = 3;
-        ListNode head = new ListNode(arr[0]);
-        ListNode temp = head;
-        for (int i = 1; i < arr.length; i++) {
-            ListNode node = new ListNode(arr[i]);
-            temp.next = node;
-            temp = node;
+    private ListNode reverseLink(ListNode head) {
+        ListNode curr = head;
+        ListNode pre = null;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
         }
-        head = reverseKGroup2(head, k);
-        while (head != null) {
-            System.out.print(head.val + "  ");
-        }
+        return pre;
     }
 }

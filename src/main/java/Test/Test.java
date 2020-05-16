@@ -116,6 +116,8 @@ public class Test {
         list.add("sss");
         CopyOnWriteArrayList<String> list1 = new CopyOnWriteArrayList<>();
         list1.add("sss");
+        Iterable<String> iterable = (Iterable<String>) list1.iterator();
+
         AtomicInteger integer = new AtomicInteger();
         integer.getAndIncrement();
         integer.addAndGet(1);
