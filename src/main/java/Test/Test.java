@@ -160,6 +160,9 @@ public class Test {
         ArrayBlockingQueue<String> arrayBlockingQueue =
                 new ArrayBlockingQueue<>(1);
         arrayBlockingQueue.add("333");
+        arrayBlockingQueue.add("444");
+        arrayBlockingQueue.add("555");
+        arrayBlockingQueue.add("666");
 
         LinkedBlockingQueue<String> linkedBlockingQueue = new LinkedBlockingQueue();
         linkedBlockingQueue.add("333");
