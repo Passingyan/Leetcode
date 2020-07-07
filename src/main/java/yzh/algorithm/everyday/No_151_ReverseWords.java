@@ -1,4 +1,4 @@
-package yzh.algorithm.everyDay;
+package yzh.algorithm.everyday;
 
 import java.util.Stack;
 

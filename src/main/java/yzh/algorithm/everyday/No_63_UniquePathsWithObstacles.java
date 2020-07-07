@@ -1,4 +1,4 @@
-package yzh.algorithm.everyDay;
+package yzh.algorithm.everyday;
 
 /**
  * 63. 不同路径 II

@@ -1,4 +1,4 @@
-package yzh.algorithm.everyDay;
+package yzh.algorithm.everyday;
 
 public class No_892_SurfaceArea {
     public int surfaceArea(int[][] grid) {

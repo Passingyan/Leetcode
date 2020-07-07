@@ -1,4 +1,4 @@
-package yzh.algorithm.everyDay;
+package yzh.algorithm.everyday;
 
 /**
  * 面试题 17.16. 按摩师

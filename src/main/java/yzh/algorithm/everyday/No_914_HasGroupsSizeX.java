@@ -1,9 +1,7 @@
-package yzh.algorithm.everyDay;
+package yzh.algorithm.everyday;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 914. 卡牌分组
